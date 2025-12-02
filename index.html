@@ -24,11 +24,15 @@
         }
 
         #flash-container {
-            width: 8000vw;   /* adjust size if needed */
-            height: 8000vh;  /* adjust size if needed */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Make the Ruffle player fill the container */
+        #flash-container ruffle-embed,
+        #flash-container ruffle-player {
+            width: 100% !important;
+            height: 100% !important;
         }
     </style>
 </head>
