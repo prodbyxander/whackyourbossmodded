@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Whack Your Boss v1.0 / @prodbyxander</title>
+    <title>Whack Your Boss v1.0</title>
 
     <script src="ruffle.js"></script>
 
@@ -10,15 +10,25 @@
         html, body {
             margin: 0;
             padding: 0;
-            background: #000;
-            overflow: hidden;
+            background: #ffffff; /* PURE WHITE */
             width: 100%;
             height: 100%;
+            overflow: hidden;
+        }
+
+        /* Center the flash container */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         #flash-container {
-            width: 100vw;
-            height: 100vh;
+            width: 80vw;   /* adjust size if needed */
+            height: 80vh;  /* adjust size if needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -27,25 +37,23 @@
 <div id="flash-container"></div>
 
 <script>
-    // Create Ruffle player
     const ruffle = window.RufflePlayer.newest();
     const player = ruffle.createPlayer();
-    const container = document.getElementById("flash-container");
 
+    const container = document.getElementById("flash-container");
     container.appendChild(player);
 
-    // Load SWF
     player.load("wybmodded.swf");
 
-    // Try to fullscreen automatically
+    // Auto fullscreen
     function tryFullscreen() {
         player.requestFullscreen();
     }
 
-    // Attempt fullscreen when loaded
+    // Try when loaded
     player.addEventListener("loaded", tryFullscreen);
 
-    // If browser blocks it, fullscreen on first click
+    // If blocked, activate fullscreen on first click
     document.addEventListener("click", tryFullscreen, { once: true });
 </script>
 
